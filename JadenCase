@@ -1,0 +1,17 @@
+# Esse eu não sei vou saber explicar, apesar de ser simples.
+# Basicamente estamos pegando uma frase e colocando todas as primeiras letras em caixa alta.
+# O nome dessa função foi uma referência ao filho de Will Smith, Jaden, porque ele escrevia dessa forma em seu twitter. 
+
+def to_jaden_case(sentence):
+    words = sentence.split()
+    jaden_case_words = [word.capitalize() for word in words]
+    jaden_case_sentence = ' '.join(jaden_case_words)
+    return jaden_case_sentence
+
+# Exemplo
+quote = "how can mirrors be real if our eyes aren't real"
+jaden_quote = to_jaden_case(quote)
+print(jaden_quote)
+
+# Sem o Jaden_cased vai printar: "How can mirrors be real if our eyes aren't real"
+# Com o Jaden_cased vai printar: "How Can Mirrors Be Real If Our Eyes Aren't Real"
