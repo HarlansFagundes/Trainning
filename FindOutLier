@@ -1,0 +1,16 @@
+# O FindOutLier identifica valores atípicos em um conjunto de dados.
+# No caso abaixo eu fiz um código para diferenciar os números pares e ímpares.
+# Consequentemente, na sequência numérica, o FindOutLier vai mostrar quem está isolado.
+# Para deixar ainda mais claro, nesse caso, em uma sequência de 8 pares e 1 ímpar ele vai identificar o ímpar, e vice versa.
+
+def find_outlier(integers):
+    even_count = sum(1 for num in integers if num % 2 == 0)
+    is_majority_even = even_count > len(integers) // 2
+    
+    for num in integers:
+        if (is_majority_even and num % 2 != 0) or (not is_majority_even and num % 2 == 0):
+            return num
+
+# Exemplos
+print(find_outlier([8, 12, 0, 120, 2, 25, 4862, 42]))  # Output: 25
+print(find_outlier([168, 1, 1747, 15, 19, 17, -59]))   # Output: 168
