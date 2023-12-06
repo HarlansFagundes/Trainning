@@ -1,0 +1,12 @@
+# Dessa vez é uma função que no começo eu estranhei, mas é mais simples do que aparenta.
+# Squaredigits simplesmente eleva ao quadrado os números na seguência e concatena/junta/coloca em uma lista de dígitos.
+
+def square_digits(num):
+    digits = [int(digit) for digit in str(num)]
+    result = int(''.join(str(digit**2) for digit in digits))
+
+    return result
+
+# Exemplo
+print(square_digits(9119))  # Output: 811181
+print(square_digits(765))   # Output: 493625
