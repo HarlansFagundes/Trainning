@@ -1,0 +1,11 @@
+# Dessa vez em precisei "camuflar" os primeiros caracteres com "#" e deixar visível apenas os últimos 4.
+# Isso serve perfeitamente para que pessoas em volta não tenham acesso às informações importantes, como senhas, etc. 
+
+def maskify(cc):
+    return '#' * (len(cc) - 4) + cc[-4:]
+
+# Examplos
+print(maskify("ZoroSola"))            # Output: "####Sola"
+print(maskify("LuffyReiDosPiratas"))  # Output: "##############atas"
+print(maskify("7"))                   # Output: "7"
+print(maskify(""))                    # Output: ""
