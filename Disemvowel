@@ -1,0 +1,6 @@
+# Nessa situação eu tive que modificar a string "This website is for losers LOL!" por "Ths wbst s fr lsrs LL!". Ou seja, remover as vogais. Para isso, foi utilizado o disemvowel.
+
+def disemvowel(string_):
+    vowels = "aeiouAEIOU"
+    result = ''.join(char for char in string_ if char not in vowels)
+    return result
