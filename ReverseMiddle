@@ -1,0 +1,44 @@
+'''
+Me pediram para escrever um código com uma função que recebesse uma lista com pelo menos quatro elementos/números.
+Depois eu teria que retornar essa lista com os dois ou três elementos do meio na ordem reversa.
+O meu cérebro bugou no começo? Bugou. Vou mentir não, mas quando entendi ficou mais fácil.
+No fim das contas eu só precisava "inverter" os valores do meio, como foi pedido. Apenas. Simples assim.
+No início eu pensei em 3 etapas (1- listar no mínimo 4 números, 2- dividir início, meio e fim e 3- juntar tudo com o meio invertido).
+'''
+
+def reverse_middle(lst):
+# Verificar se a lista de entrada tem pelo menos 4 elementos.
+    if len(lst) < 4: 
+        raise ValueError("Precisa ter pelo menos 4 elementos")
+
+# calcular os índices de início e fim para os elementos do meio da lista.
+    middle_start = (len(lst) - 1) // 2
+    middle_end = len(lst) // 2 + 1
+
+# Juntar os elementos antes do meio, os elementos invertidos do meio e os elementos após o meio.
+# Utilizei o [::-1] porque prefiro códigos mais compactos.
+    return lst[:middle_start] + lst[middle_start:middle_end][::-1] + lst[middle_end:] 
+
+# Exemplo de uso após definir a função:
+my_list = [1, 2, 3, 4, 5]
+result = reverse_middle(my_list)
+print(result)
+
+'''
+Porém em alguns dos testes o código acima não passava. Solicitei ajuda do my friend Loucker que mostrou novos caminhos, mesmo sendo em Java.
+Do jeito dele estava certo, mas quando eu convertia pra Python também dava erro em alguns dos testes (são mais de 100 testes diferentes).
+Contudo, eu recebi o seguinte código...
+'''
+
+def reverse_middle(lst):
+    l = len(lst)//2 - 1
+    return lst[l:-l][::-1]
+
+'''
+len(my_list)//2 é 2 (índice do elemento do meio).
+l é calculado como 1 (índice do primeiro elemento do meio).
+lst[l:-l] cria uma fatia de [2, 3] (elementos do meio).
+[::-1] inverte a ordem da fatia, resultando em [3, 2].
+'''
+
+# E funcionou! :D
