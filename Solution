@@ -1,0 +1,8 @@
+# Aqui me pediram para colocar espaços entre as palavras para quebrar o camel case.
+# Nesse caso eu tinha que utilizar a função "Solution" para inserir os espaços sempre que houvessem palavras minúsculas seguidas de maiúsculas.
+
+import re                                           # Para utilizar funções regulares Solution e Re.sub.
+
+def solution(s):                                    # Solution para quebra o camel Case (colocar os espaços) de uma string 's') 
+    return re.sub(r'([a-z])([A-Z])', r'\1 \2', s)   # Re.sub para substituir padrões de expressão regular na string.
+
