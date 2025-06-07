@@ -1,0 +1,17 @@
+# Esse eu confesso que embaralhou a minha cabeça no início, mas não é difícil.
+# Ele pediu para somar os digitos de "n" e, se o resultado tivesse mais de um dígito, eu teria que continuar reduzindo (somando) até ficar um número de apenas um dígito. (OBS: A entrada terá que ser de um número inteiro não negativo).
+# Não sei se eu consegui colocar em palavras isso, mas ficou assim:
+
+def digital_root(n):
+    if n < 10:
+        return n
+    else:
+        # soma os dígitos convertendo para string e somando cada um como inteiro
+        s = sum(int(d) for d in str(n))
+        return digital_root(s)
+
+# Exemplos
+print(digital_root(16))      # 7
+print(digital_root(942))     # 6
+print(digital_root(132189))  # 6
+print(digital_root(493193))  # 2
