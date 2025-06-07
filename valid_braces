@@ -1,0 +1,29 @@
+# Me pediram para verificar se os sinais de abertura e fechamento dos parênteses (), colchetes [] e chaves {} estavam corretamente pareados e na ordem certa (abertos e devidamente fechados).
+# O valid_braces faz exatamente isso.
+
+
+def valid_braces(s):
+    stack = []
+    opening = "([{"
+    closing = ")]}"
+    pairs = dict(zip(closing, opening))
+
+    for char in s:
+        if char in opening:
+            stack.append(char)
+        elif char in closing:
+            if not stack or stack.pop() != pairs[char]:
+                return False
+        else:
+            # Caso tenha um caractere inválido (não esperado)
+            return False
+
+    return not stack
+
+#Exemplo:
+  
+print(valid_braces("(){}[]"))   # True
+print(valid_braces("([{}])"))   # True
+print(valid_braces("(}"))       # False
+print(valid_braces("[(])"))     # False
+print(valid_braces("[({})](]")) # False
