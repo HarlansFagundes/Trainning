@@ -1,0 +1,13 @@
+# Me pediram para colocar todos os zeros da lista para o fim. Para isso utilzei o move_zeros (sugestivo).
+
+def move_zeros(arr):
+    result = [x for x in arr if x != 0]
+    zeros = [0] * (len(arr) - len(result))
+    return result + zeros
+
+# Exemplo de uso:
+print(move_zeros([1, 0, 1, 2, 0, 1, 3]))  # Saída: [1, 1, 2, 1, 3, 0, 0]
+
+# [x for x in arr if x != 0]: coleta todos os elementos diferentes de zero na ordem original.
+# [0] * (len(arr) - len(result)): cria uma lista com a quantidade correta de zeros.
+# result + zeros: concatena/junta os elementos diferentes de zero com os zeros no final.
